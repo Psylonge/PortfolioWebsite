@@ -1,0 +1,232 @@
+/* ...existing code... */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: rgba(0,0,0,0.25);
+  color: #636e72;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 48px;
+  background: rgba(0,0,0,0.75);
+}
+
+header .Name {
+  color: #fff;
+  font-size: 2rem;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 32px;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+}
+
+nav a.active,
+nav a:hover {
+  color: #fff;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 2px;
+}
+
+section {
+  max-width: 1000px;
+  margin: 48px auto;
+  padding: 32px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+}
+
+.home {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+.prof-img img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #ffffffa0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.home-content h1 {
+  margin: 0 0 12px 0;
+  font-size: 2.5rem;
+}
+
+.dynamic-text {
+  font-size: 1.3rem;
+  color: #636e72;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 12px 32px;
+  background: #212121;
+  color: #fff;
+  border-radius: 24px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #fff;
+  color: #212121;
+  box-shadow: 0 0 12px #00000050;
+}
+
+/* Experience cards */
+.experience-card-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.2rem;
+  margin-top: 2rem;
+  justify-items: center;
+}
+
+.experience-card {
+  width: 100%;
+  max-width: 220px;
+  background: #fff;
+  border-radius: 1.5rem;
+  border: 2px solid rgba(0,0,0,0.31);
+  padding: 1.2rem 0.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.experience-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 0 32px rgba(0,0,0,0.6);
+}
+
+.experience-icon img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  margin-bottom: 1.2rem;
+  display: block;
+}
+
+.experience-desc p,
+.details p {
+  color: #000;
+  text-align: center;
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.social-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.social-icon img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 2px solid #ffffffa0;
+  background: #fff;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.social-icon img:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 16px rgba(0,0,0,0.6);
+  border-color: #000;
+}
+
+#dynamicText {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.prevent-select {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #00b894;
+  margin-bottom: 18px;
+  font-weight: bold;
+}
+
+.dynamic-text {
+  font-size: 1.3rem;
+  color: #636e72;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  height: 1.4em;
+  vertical-align: middle;
+}
+
+.dynamic-text .word {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  opacity: 0;
+  transform: translateY(0.25em);
+  white-space: nowrap;
+  animation: wordCycle 12s linear infinite;
+}
+
+.dynamic-text .word:nth-child(1) { animation-delay: 0s; }
+.dynamic-text .word:nth-child(2) { animation-delay: 3s; }
+.dynamic-text .word:nth-child(3) { animation-delay: 6s; }
+.dynamic-text .word:nth-child(4) { animation-delay: 9s; }
+
+@keyframes wordCycle {
+  0%   { opacity: 0; transform: translateY(0.25em); }
+  6%   { opacity: 1; transform: translateY(0); }
+  25%  { opacity: 1; transform: translateY(0); }
+  33%  { opacity: 0; transform: translateY(-0.25em); }
+  100% { opacity: 0; transform: translateY(-0.25em); }
+}
+
+@media (max-width: 800px) {
+  .home {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+  }
+  section {
+    padding: 16px;
+  }
+}
+/* ...existing code... */
